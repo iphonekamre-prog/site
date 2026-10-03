@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Darya Nails — панель мастера</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Manrope:wght@400;500;600&subset=cyrillic,latin&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body data-page="admin" data-title="title.admin">
+<header class="site">
+  <div class="brand">Darya Nails<a href="index.html" data-i18n="a.site"></a></div>
+  <div class="tabs" role="tablist" id="tabs">
+    <button role="tab" data-t="bk" aria-selected="true"><span data-i18n="a.t.bk"></span><em id="bkb"></em></button>
+    <button role="tab" data-t="cl" aria-selected="false" data-i18n="a.t.cl"></button>
+    <button role="tab" data-t="fn" aria-selected="false" data-i18n="a.t.fn"></button>
+    <button role="tab" data-t="it" aria-selected="false" data-i18n="a.t.it"></button>
+    <button role="tab" data-t="wk" aria-selected="false" data-i18n="a.t.wk"></button>
+    <button role="tab" data-t="st" aria-selected="false" data-i18n="a.t.st"></button>
+  </div>
+  <div class="tools">
+    <button class="ic" id="lang" type="button"></button>
+    <button class="ic" id="theme" type="button" data-i18n-aria="theme"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
+  </div>
+</header>
+
+<main>
+<!-- Bookings -->
+<section id="bk">
+  <h2 data-i18n="a.bk.h"></h2>
+  <div class="kpis" id="bkp"></div>
+  <div class="panel"><div class="form">
+    <label><span data-i18n="a.client"></span><select id="nbc"></select></label>
+    <label><span data-i18n="a.design"></span><input id="nbd" data-i18n-ph="a.design.ph"></label>
+    <label><span data-i18n="a.date"></span><input id="nbt" type="date"></label>
+    <label><span data-i18n="a.time"></span><select id="nbtm"></select></label>
+    <label><span data-i18n="a.price"></span><input id="nbp" type="number" min="0" step="50"></label>
+    <button class="b p" id="nba" data-i18n="a.nb.add"></button></div></div>
+  <div class="panel"><div class="bar">
+    <input id="bq" type="search" data-i18n-ph="a.search.ph" data-i18n-aria="a.search">
+    <select id="bf" data-i18n-aria="a.filter">
+      <option value="all" data-i18n="a.f.all"></option><option value="new" data-i18n="a.f.new"></option><option value="unpaid" data-i18n="a.f.unpaid"></option>
+      <option value="paid" data-i18n="a.f.paid"></option><option value="cancel" data-i18n="a.f.cancel"></option></select>
+    <button class="b" id="csv" data-i18n="a.csv"></button></div></div>
+  <div class="bl" id="bt"></div>
+</section>
+
+<!-- Clients -->
+<section id="cl" hidden>
+  <h2 data-i18n="a.cl.h"></h2>
+  <div class="panel"><div class="form">
+    <label><span data-i18n="a.name"></span><input id="cn"></label>
+    <label><span data-i18n="a.phone"></span><input id="cp" type="tel"></label>
+    <label><span data-i18n="a.notes"></span><input id="cz" data-i18n-ph="a.notes.ph"></label>
+    <label><span data-i18n="a.upphoto"></span><input id="cf" type="file" accept="image/*" multiple></label>
+    <button class="b p" id="ca" data-i18n="a.saveclient"></button><button class="b" id="cx" data-i18n="a.cancel" hidden></button></div></div>
+  <div class="cl" id="cg"></div>
+</section>
+
+<!-- Finance -->
+<section id="fn" hidden>
+  <h2 data-i18n="a.fn.h"></h2>
+  <div class="kpis" id="kp"></div>
+  <div class="panel"><b data-i18n="a.chart"></b><div class="chart" id="ch"></div></div>
+  <div class="panel wrap"><b data-i18n="a.tx"></b>
+    <table><thead><tr><th data-i18n="a.paidon"></th><th data-i18n="a.client"></th><th data-i18n="a.design"></th><th data-i18n="a.sum"></th></tr></thead><tbody id="tx"></tbody></table></div>
+</section>
+
+<!-- Catalog -->
+<section id="it" hidden>
+  <h2 data-i18n="a.it.h"></h2>
+  <p class="note" data-i18n="a.it.info"></p>
+  <div class="panel"><div class="form">
+    <label><span data-i18n="a.type"></span><select id="it_k"><option value="Услуга" data-i18n="kind.Услуга"></option><option value="Товар" data-i18n="kind.Товар"></option><option value="Дизайн" data-i18n="kind.Дизайн"></option></select></label>
+    <label><span data-i18n="a.title.ru"></span><input id="it_t"></label>
+    <label><span data-i18n="a.title.en"></span><input id="it_te"></label>
+    <label><span data-i18n="a.desc.ru"></span><input id="it_d"></label>
+    <label><span data-i18n="a.desc.en"></span><input id="it_de"></label>
+    <label><span data-i18n="a.cprice"></span><input id="it_p" type="number" min="0" step="50"></label>
+    <label><span data-i18n="a.old"></span><input id="it_o" type="number" min="0" step="50"></label>
+    <label><span data-i18n="a.showrec"></span><input id="it_r" type="checkbox" checked style="width:24px;height:24px"></label>
+    <label><span data-i18n="a.photo"></span><input id="it_f" type="file" accept="image/*"></label>
+    <button class="b p" id="ia" data-i18n="a.itadd"></button><button class="b" id="ic" data-i18n="a.cancel" hidden></button></div></div>
+  <div class="cl" id="ig"></div>
+</section>
+
+<!-- Gallery -->
+<section id="wk" hidden>
+  <h2 data-i18n="a.wk.h"></h2>
+  <p class="note" data-i18n="a.wk.info"></p>
+  <div class="panel"><div class="form">
+    <label><span data-i18n="a.title.ru"></span><input id="wk_t" data-i18n-ph="a.wk.title.ph"></label>
+    <label><span data-i18n="a.title.en"></span><input id="wk_te"></label>
+    <label><span data-i18n="a.wk.photo"></span><input id="wk_f" type="file" accept="image/*"></label>
+    <button class="b p" id="wa" data-i18n="a.wk.add"></button></div></div>
+  <div class="cl" id="wgl"></div>
+</section>
+
+<!-- Site settings -->
+<section id="st" hidden>
+  <h2 data-i18n="a.st.h"></h2>
+  <p class="note" data-i18n="a.st.info"></p>
+  <div class="panel"><h3 data-i18n="a.st.hero"></h3><div class="form">
+    <label><span data-i18n="a.s.call"></span><input id="s_call"></label>
+    <label><span data-i18n="a.s.calle"></span><input id="s_calle"></label>
+    <label><span data-i18n="a.s.hero"></span><textarea id="s_hero" rows="3"></textarea></label>
+    <label><span data-i18n="a.s.heroe"></span><textarea id="s_heroe" rows="3"></textarea></label>
+    <label><span data-i18n="a.s.himg"></span><input id="s_himg" type="file" accept="image/*"></label>
+    <label><span data-i18n="a.pos.l"></span><select id="s_himgpos" data-o="pos"></select></label>
+    <label><span data-i18n="a.fit"></span><select id="s_himgfit" data-o="fit"></select></label>
+    <div><img class="thumb" id="pv_himg" data-i18n-alt="a.himg.alt" alt="" style="width:72px;height:72px"> <button class="b" data-rs="himg" data-i18n="a.reset"></button></div></div></div>
+  <div class="panel"><h3 data-i18n="a.st.about"></h3><div class="form">
+    <label><span data-i18n="a.s.role"></span><input id="s_role"></label>
+    <label><span data-i18n="a.s.rolee"></span><input id="s_rolee"></label>
+    <label><span data-i18n="a.s.atext"></span><textarea id="s_atext" rows="4"></textarea></label>
+    <label><span data-i18n="a.s.atexte"></span><textarea id="s_atexte" rows="4"></textarea></label>
+    <label><span data-i18n="a.s.mimg"></span><input id="s_mimg" type="file" accept="image/*"></label>
+    <label><span data-i18n="a.pos.l"></span><select id="s_mimgpos" data-o="pos"></select></label>
+    <label><span data-i18n="a.fit"></span><select id="s_mimgfit" data-o="fit"></select></label>
+    <label><span data-i18n="a.ratio"></span><select id="s_mimgratio" data-o="ratio"></select></label>
+    <div><img class="thumb" id="pv_mimg" data-i18n-alt="a.mimg.alt" alt="" style="width:72px;height:72px"> <button class="b" data-rs="mimg" data-i18n="a.reset"></button></div></div></div>
+  <div class="panel"><h3 data-i18n="a.st.contacts"></h3><div class="form">
+    <label><span data-i18n="a.s.ph"></span><input id="s_ph" type="tel" placeholder="+7 978 510-05-11"></label>
+    <label><span data-i18n="a.s.wa"></span><input id="s_wa" placeholder="79785100511"></label>
+    <label><span data-i18n="a.s.vk"></span><input id="s_vk" placeholder="https://vk.com/..."></label>
+    <label><span data-i18n="a.s.ad"></span><textarea id="s_ad" rows="2"></textarea></label>
+    <label><span data-i18n="a.s.ade"></span><textarea id="s_ade" rows="2"></textarea></label>
+    <label><span data-i18n="a.s.adh"></span><input id="s_adh"></label>
+    <label><span data-i18n="a.s.adhe"></span><input id="s_adhe"></label></div></div>
+  <div class="panel"><h3 data-i18n="a.st.rec"></h3><p class="note" data-i18n="a.st.rec.i"></p><div class="form">
+    <label><span data-i18n="a.s.tr"></span><textarea id="s_tr" rows="5"></textarea></label>
+    <label><span data-i18n="a.s.tre"></span><textarea id="s_tre" rows="5"></textarea></label>
+    <label><span data-i18n="a.s.tp"></span><textarea id="s_tp" rows="5"></textarea></label>
+    <label><span data-i18n="a.s.tpe"></span><textarea id="s_tpe" rows="5"></textarea></label>
+    <label><span data-i18n="a.s.sg"></span><textarea id="s_sg" rows="5"></textarea></label>
+    <label><span data-i18n="a.s.sge"></span><textarea id="s_sge" rows="5"></textarea></label></div></div>
+  <div class="panel"><h3 data-i18n="a.st.backup"></h3><p class="note" data-i18n="a.st.backup.i"></p>
+    <div class="bar"><button class="b" id="bkx" data-i18n="a.bkx"></button><label class="fl b"><span data-i18n="a.bki"></span><input class="vh" id="bki" type="file" accept="application/json"></label></div></div>
+  <button class="b p" id="sa" data-i18n="a.savesite"></button>
+</section>
+</main>
+
+<dialog id="cdlg"><form id="cdf"><h3 id="cdt"></h3><div id="cdb"></div><div class="act"><button class="b" type="button" id="cdn" data-i18n="a.cancel"></button><button class="b p" type="submit" id="cdy"></button></div></form></dialog>
+<dialog id="dlg"><img id="big" alt=""></dialog>
+<script src="common.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

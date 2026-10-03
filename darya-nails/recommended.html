@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Рекомендуем — Darya Nails</title>
+<meta name="description" content="Выбор студии Darya Nails: тренды сезона, советы по уходу и фирменные стили.">
+<meta name="theme-color" content="#B0204F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%85%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Manrope:wght@400;500;600&subset=cyrillic,latin&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="rec" data-title="title.rec">
+<header id="hd"></header>
+
+<main>
+  <section class="page-h">
+    <a class="back" href="index.html" data-i18n="rec.home"></a>
+    <h1 data-i18n="rec.h"></h1>
+    <p class="sub" data-i18n="rec.sub"></p>
+    <nav class="jump" aria-label="Sections">
+      <a href="#picks" data-i18n="rec.picks"></a>
+      <a href="#trends" data-i18n="rec.tr"></a>
+      <a href="#care" data-i18n="rec.tp"></a>
+      <a href="#styles" data-i18n="rec.sg"></a>
+    </nav>
+  </section>
+
+  <section class="sec" id="picks">
+    <header class="sh split">
+      <h2 data-i18n="rec.picks"></h2>
+      <div class="sort-bar" id="rec-sort" hidden>
+        <label><span data-i18n="sort.l"></span>
+          <select id="rec-order">
+            <option value="default" data-i18n="sort.d"></option>
+            <option value="high" data-i18n="sort.h"></option>
+            <option value="low" data-i18n="sort.lo"></option>
+          </select>
+        </label>
+      </div>
+    </header>
+    <div class="grid" id="items"></div>
+    <button class="btn o more-btn" id="items-more" type="button" data-i18n="more" hidden></button>
+    <p class="empty" id="rec-empty" data-i18n="rec.empty" hidden></p>
+  </section>
+
+  <section class="sec tips">
+    <div class="rec">
+      <article class="rc" id="trends"><h3 data-i18n="rec.tr"></h3><ul id="tr"></ul></article>
+      <article class="rc" id="care"><h3 data-i18n="rec.tp"></h3><ul id="tp"></ul></article>
+      <article class="rc" id="styles"><h3 data-i18n="rec.sg"></h3><ul id="sg"></ul></article>
+    </div>
+  </section>
+</main>
+
+<footer id="ft"></footer>
+<script src="common.js"></script>
+<script src="recommended.js"></script>
+</body>
+</html>
